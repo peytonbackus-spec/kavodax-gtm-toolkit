@@ -1,11 +1,12 @@
-# 01 — Founding ICP & Outbound Segmentation
+# 01 — Founding ICP & Outbound Segmentation (CAGD & Cross-Border Payments)
 
 ## Target Account Criteria
-* **Company Size:** Mid-market to Enterprise ($20M–$250M ARR or 200–2,000 employees).
-* **Target Personas:** VP Sales, VP Revenue Operations, Chief Commercial Officer, Head of GTM.
-* **Core Pain Points:** Disjointed prospecting signals, low outbound conversion rates, manual pipeline reporting.
+* **Core Verticals:** Import/Export Enterprise, International Supply Chain, Cross-Border E-Commerce, Global Payroll Providers.
+* **Company Profile:** Mid-Market to Enterprise firms handling $5M+ in annual cross-border transaction volume.
+* **Target Buyer Personas:** Chief Financial Officer (CFO), Corporate Treasurer, VP Finance, Head of Global Operations.
+* **Core Pain Points:** High SWIFT wire fees, 2–5 day settlement delays, unpredictable FX markups, heavy administrative reconciliation.
 
 ## Outbound Signal Triggers
-1. **GTM Team Expansion:** Active hiring for SDRs, AEs, or RevOps leaders.
-2. **Tech Stack Shifts:** Recent adoption of CRM platforms or sales engagement tools.
-3. **Product Launches:** Public announcements regarding new product lines or market expansions.
+1. **Corridor Expansion Signals:** Active expansion into CAD-EUR, CAD-USD, or CAD-BRL trade corridors.
+2. **High FX Overhead:** Public filings or job postings indicating high multi-currency settlement overhead.
+3. **Treasury Tech Modernization:** Active hiring for Treasury Operations or adoption of enterprise ERPs (SAP, NetSuite).

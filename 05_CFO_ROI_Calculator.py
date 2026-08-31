@@ -1,4 +1,4 @@
-a#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Kavodax CAGD vs. Legacy SWIFT Wire / FX Savings Calculator
 Accepts dynamic CLI arguments for live CFO executive demos.
