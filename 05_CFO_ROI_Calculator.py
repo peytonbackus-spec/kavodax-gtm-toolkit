@@ -1,10 +1,11 @@
-#!/usr/bin/env python3
+a#!/usr/bin/env python3
 """
 Kavodax CAGD vs. Legacy SWIFT Wire / FX Savings Calculator
-Calculates basis-point savings, transaction fee reductions, and annualized ROI.
+Accepts dynamic CLI arguments for live CFO executive demos.
 """
+import argparse
 
-def calculate_cagd_savings(annual_volume_cad, avg_transfer_size_cad, current_fx_markup_pct=0.03, current_wire_fee=35.0):
+def calculate_cagd_savings(annual_volume_cad, avg_transfer_size_cad, current_fx_markup_pct, current_wire_fee):
     cagd_spread_pct = 0.005  # 50 bps average CAGD spread
     cagd_payout_fee = 1.50   # Flat per-payout rail fee
     
@@ -22,7 +23,7 @@ def calculate_cagd_savings(annual_volume_cad, avg_transfer_size_cad, current_fx_
     
     # Savings
     annual_savings = total_legacy_cost - total_cagd_cost
-    savings_pct = (annual_savings / total_legacy_cost) * 100
+    savings_pct = (annual_savings / total_legacy_cost) * 100 if total_legacy_cost > 0 else 0
     
     return {
         "annual_volume": annual_volume_cad,
@@ -33,10 +34,21 @@ def calculate_cagd_savings(annual_volume_cad, avg_transfer_size_cad, current_fx_
     }
 
 if __name__ == "__main__":
-    # Example: Importer processing $5M/year in $50k average payouts
-    res = calculate_cagd_savings(5_000_000, 50_000)
-    print(f"--- CAGD Commercial ROI Model ---")
-    print(f"Annual Volume: ${res['annual_volume']:,.2f} CAD")
-    print(f"Legacy Bank/SWIFT Cost: ${res['legacy_total']:,.2f}")
-    print(f"Kavodax CAGD Cost: ${res['cagd_total']:,.2f}")
-    print(f"Net Annualized Savings: ${res['annual_savings']:,.2f} ({res['savings_pct']:.1f}% Reduction)")
+    parser = argparse.ArgumentParser(description="Calculate CFO savings switching from SWIFT to Kavodax CAGD.")
+    parser.add_argument("--volume", type=float, default=5000000.0, help="Annual cross-border volume in CAD (Default: $5,000,000)")
+    parser.add_argument("--avg-payout", type=float, default=50000.0, help="Average payout size in CAD (Default: $50,000)")
+    parser.add_argument("--markup", type=float, default=0.03, help="Current bank FX markup decimal (Default: 0.03 for 3.0%)")
+    parser.add_argument("--wire-fee", type=float, default=35.0, help="Current bank wire fee per transfer (Default: $35.00)")
+    
+    args = parser.parse_args()
+    res = calculate_cagd_savings(args.volume, args.avg_payout, args.markup, args.wire_fee)
+    
+    print("\n" + "="*50)
+    print("      KAVODAX CAGD COMMERCIAL ROI MODEL")
+    print("="*50)
+    print(f"Annual CAD Volume:          ${res['annual_volume']:,.2f}")
+    print(f"Legacy Bank/SWIFT Cost:     ${res['legacy_total']:,.2f}")
+    print(f"Kavodax CAGD Total Cost:    ${res['cagd_total']:,.2f}")
+    print("-" * 50)
+    print(f"NET ANNUAL SAVINGS:         ${res['annual_savings']:,.2f} ({res['savings_pct']:.1f}% Reduction)")
+    print("="*50 + "\n")
