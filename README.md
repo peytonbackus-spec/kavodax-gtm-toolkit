@@ -4,6 +4,19 @@ Executive Go-To-Market strategy, outbound prospecting engines, and founder-led s
 
 ---
 
+### GTM Signal & Sales Architecture
+
+```mermaid
+flowchart LR
+    A[Intent & FX Signals] --> B[Python Signal Engine]
+    B --> C[Outbound Outreach]
+    C --> D[Founder Discovery Call]
+    D --> E[14-Day MAP Pilot]
+    E --> F[Enterprise Contract]
+```
+
+---
+
 ### Repository Contents
 
 | Module | File | Core Strategic Focus |
