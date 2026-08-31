@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kavodax-roi-calculator"
+version = "1.0.0"
+description = "CFO ROI and FX savings model for Kavodax CAGD settlement rails"
+readme = "README.md"
+authors = [{ name = "Peyton Backus" }]
+dependencies = []
